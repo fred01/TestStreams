@@ -38,9 +38,6 @@ object LargeStringContentSerializer: KSerializer<LargeStringContent> {
                 reminder = actualChunk.takeLast(reminderLength)
 
                 println("Chunk size: ${actualChunk.length}")
-                println("Aligned chunk size: ${alignedChunk.length}")
-                println("Reminder size : $reminderLength")
-                println("Reminder      : $reminder")
                 bos.write(b64Decoder.decode(alignedChunk))
             }
             bos.toByteArray()
